@@ -12,7 +12,7 @@ const images = [
 // galería, modal, modalImage, close, next, prev
 const gallery = document.getElementById('galeria');
 const modal = document.getElementById('modal');
-const modalImage = document.getElementById('modal-image');
+const modalImage = document.getElementById('idModalImage');
 const closeBtn = document.getElementById('close');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -23,17 +23,17 @@ const crearGaleria = () => {
         const img = document.createElement('img');
         img.src = imagen;
         img.alt = `Imagen ${index + 1}`;
-        console.log(index);
         img.addEventListener('click', () => openModal(index));
         gallery.appendChild(img);
     });
 };
 // Función para abrir el modal y mostrar la imagen seleccionada
-function openModal(index) {
+const openModal = index => {
     currentIndex = index;
     modalImage.src = images[currentIndex];
+    console.log(modalImage);
     modal.style.display = 'flex';
-}
+};
 // Función para cerrar el modal
 const closeModal = () => {
     modal.style.display = 'none';
@@ -57,9 +57,9 @@ function nextImagen() {
 // Eventos de los EventListeners
 closeBtn.addEventListener('click', closeModal);
 prevBtn.addEventListener('click', prevImagen);
-nextBtn.addEventListener('click', nextBtn);
+nextBtn.addEventListener('click', nextImagen);
 
-windows.addEventListener('click', event => {
+window.addEventListener('click', event => {
     if (event.target === modal) {
         closeModal();
     }
