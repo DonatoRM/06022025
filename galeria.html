@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Donato Ramos Martínez" />
+    <meta name="description" content="Galería de Imágenes" />
+    <meta name="keywords" content="html,css,javascript,php" />
+    <title>Galería de Imágenes</title>
+    <style>
+      /* Realizado por: Donato Ramos Martínez */
+      /* Documento: Donato Ramos Martínez */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+      }
+      .galeria {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin-top: 20px auto;
+        max-width: 800px;
+      }
+      .galeria img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .galeria img:hover {
+        transform: scale(1.05);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      /* Falta algo */
+      .modal img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+      }
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .nav {
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .nav.left {
+        left: 20px;
+      }
+      .nav.right {
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Galería de Imágenes</h1>
+    <!-- Contenedor de la galería -->
+    <div class="galeria" id="galeria"></div>
+    <!-- Ventana MODAL para ver la imagen grande -->
+    <div class="modal" id="modal">
+      <span class="close" id="close">&times;</span>
+      <span class="prev" id="prev">&#10094;</span>
+      <span class="next" id="next">&10095;</span>
+      <img id="idModalImage" />
+    </div>
+    <script src="./galeria.js"></script>
+  </body>
+</html>
